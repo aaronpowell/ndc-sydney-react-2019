@@ -10,7 +10,7 @@ const TabControl: React.FC<ITabControlProps> = ({ tabNames, children }) => (
     <ul className="TabHeaders">
       {tabNames.map(tab => (
         <li key={tab}>
-          <Link to={`/${tab}`}>{tab}</Link>
+          <Link to={`/agenda/${tab}`}>{tab}</Link>
         </li>
       ))}
     </ul>

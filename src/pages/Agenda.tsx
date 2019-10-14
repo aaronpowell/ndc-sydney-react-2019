@@ -40,8 +40,11 @@ class Agenda extends React.Component<{}, IAgendaState> {
     return (
       <TabControl tabNames={days}>
         <Switch>
+          <Route exact path="/">
+            <h1>Please select a day for the agenda</h1>
+          </Route>
           {days.map(key => (
-            <Route key={key} path={`/${key}`}>
+            <Route key={key} path={`/agenda/${key}`}>
               <Day day={key} agenda={agenda[key]} />
             </Route>
           ))}
