@@ -3,9 +3,11 @@
 exports[`will group by times 1`] = `
 <DocumentFragment>
   <div
-    class="Day test"
+    class="sc-bdVaJa dLXKxI"
   >
-    <h2>
+    <h2
+      class="sc-bwzfXH lbWQEJ"
+    >
       test
     </h2>
     <div
