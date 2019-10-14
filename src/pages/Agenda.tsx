@@ -2,6 +2,7 @@ import React from "react";
 import { IAgendaItem, groupAgendaDays } from "../agendaUtils";
 import Day from "../components/Day";
 import TabControl from "../components/TabControl";
+import { Route, Switch } from "react-router-dom";
 
 interface IAgendaState {
   agenda?: { [key: string]: IAgendaItem[] };
@@ -38,9 +39,13 @@ class Agenda extends React.Component<{}, IAgendaState> {
 
     return (
       <TabControl tabNames={days}>
-        {days.map(key => (
-          <Day key={key} day={key} agenda={agenda[key]} />
-        ))}
+        <Switch>
+          {days.map(key => (
+            <Route key={key} path={`/${key}`}>
+              <Day day={key} agenda={agenda[key]} />
+            </Route>
+          ))}
+        </Switch>
       </TabControl>
     );
   }
