@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+import agenda from './fetchAgenda';
+import moment from 'moment';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        NDC Sydney Agenda
       </header>
+      {agenda.map(item => {
+        return (<div>
+          <h2>{item.day}</h2>
+          <h3>{moment(item.startTime).format('hh:mm')} - {moment(item.endTime).format('hh:mm')}</h3>
+          <p>{item.title} - {item.speaker}</p>
+        </div>);
+      })}
     </div>
   );
 }
