@@ -1,9 +1,14 @@
 import moment from "moment";
 
+interface Timeslot {
+  hour: number
+  minutes: number
+}
+
 export interface IAgendaItem {
   day: string;
-  startTime: Date;
-  endTime: Date;
+  startTime: Timeslot;
+  endTime: Timeslot;
   room: string;
   title: string;
   speaker: string;
@@ -19,7 +24,7 @@ const groupAgendaDays = (agenda: IAgendaItem[]) => {
   }, {});
 };
 
-const formatTime = (time: Date) => moment(time).format("hh:mm");
+const formatTime = (time: Timeslot) => moment(time).format("hh:mm");
 
 const groupAgendaTimeslots = (agenda: IAgendaItem[]) => {
   return agenda.reduce((groups: { [key: string]: IAgendaItem[] }, item) => {

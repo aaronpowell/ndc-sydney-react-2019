@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`will group by times 1`] = `
+<DocumentFragment>
+  <div
+    class="Day test"
+  >
+    <h2>
+      test
+    </h2>
+    <div
+      class="Timeslot"
+    >
+      <h4>
+        09:00 - 10:00
+      </h4>
+      <p>
+        title 1 - speaker 1
+      </p>
+      <p>
+        title 2 - speaker 2
+      </p>
+    </div>
+    <div
+      class="Timeslot"
+    >
+      <h4>
+        10:20 - 11:20
+      </h4>
+      <p>
+        title 3 - speaker 3
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
