@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export interface IAgendaItem {
   day: string;
   startTime: Date;
@@ -7,7 +9,7 @@ export interface IAgendaItem {
   speaker: string;
 }
 
-const mapAgenda = (agenda: IAgendaItem[]) => {
+const groupAgendaDays = (agenda: IAgendaItem[]) => {
   return agenda.reduce((groups: { [key: string]: IAgendaItem[] }, item) => {
     if (!groups[item.day]) {
       groups[item.day] = [];
@@ -17,4 +19,19 @@ const mapAgenda = (agenda: IAgendaItem[]) => {
   }, {});
 };
 
-export { mapAgenda };
+const formatTime = (time: Date) => moment(time).format("hh:mm");
+
+const groupAgendaTimeslots = (agenda: IAgendaItem[]) => {
+  return agenda.reduce((groups: { [key: string]: IAgendaItem[] }, item) => {
+    const timeslot = `${formatTime(item.startTime)} - ${formatTime(
+      item.endTime
+    )}`;
+    if (!groups[timeslot]) {
+      groups[timeslot] = [];
+    }
+    groups[timeslot].push(item);
+    return groups;
+  }, {});
+};
+
+export { groupAgendaDays, groupAgendaTimeslots, formatTime };
