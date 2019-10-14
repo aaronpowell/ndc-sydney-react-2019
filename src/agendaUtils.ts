@@ -14,6 +14,8 @@ export interface IAgendaItem {
   speaker: string;
 }
 
+export type AgendaDays = { [key: string]: IAgendaItem[] }
+
 const groupAgendaDays = (agenda: IAgendaItem[]) => {
   return agenda.reduce((groups: { [key: string]: IAgendaItem[] }, item) => {
     if (!groups[item.day]) {
