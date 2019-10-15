@@ -15,6 +15,7 @@ const TimeSlot: React.FC<ITimeSlotProps> = ({ talks, timeslot }) => (
         key={`${item.speaker}${item.title}`}
         title={item.title}
         speaker={item.speaker}
+        talk={item}
       />
     ))}
   </div>

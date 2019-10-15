@@ -2,8 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "styled-components";
 
+type TabRoute = {
+  name: string;
+  route: string;
+};
+
 interface ITabControlProps {
-  tabNames: string[];
+  tabNames: TabRoute[];
 }
 
 const Menu = styles.ul`
@@ -28,8 +33,8 @@ const TabControl: React.FC<ITabControlProps> = ({ tabNames, children }) => (
   <div className="TabControl">
     <Menu>
       {tabNames.map(tab => (
-        <MenuItem key={tab}>
-          <NavLink to={`/agenda/${tab}`}>{tab}</NavLink>
+        <MenuItem key={tab.name}>
+          <NavLink to={tab.route}>{tab.name}</NavLink>
         </MenuItem>
       ))}
     </Menu>
