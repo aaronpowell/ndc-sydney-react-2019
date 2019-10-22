@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { groupAgendaDays, AgendaDays } from "./agendaUtils";
 
-export default function useAgenda(): [boolean, AgendaDays?] {
+export default function useAgenda(): [boolean, AgendaDays] {
   const [isLoading, setLoading] = useState(true);
-  const [agenda, setAgenda] = useState<AgendaDays>();
+  const [agenda, setAgenda] = useState<AgendaDays>({});
 
   useEffect(() => {
     fetch("/agenda.json")

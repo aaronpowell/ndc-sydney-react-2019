@@ -9,7 +9,7 @@ import MySessions from "./MySessions";
 const Agenda: React.FC = () => {
   const [isLoading, agenda] = useAgenda();
 
-  if (isLoading || !agenda) {
+  if (isLoading) {
     return <div>Loading...</div>;
   }
 
